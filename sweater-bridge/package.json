@@ -11,5 +11,8 @@
     "url": "git@github.com:nko3/arduino-bridge.git"
   },
   "author": "reconbot",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "socket.io": "~0.9.11"
+  }
 }

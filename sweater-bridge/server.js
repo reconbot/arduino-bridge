@@ -3,29 +3,19 @@
  *   */
 
 var express = require('express')
-  , stylus = require('stylus')
-  , nib = require('nib')
-  , sio = require('../../lib/socket.io')
+  , sio = require('socket.io')
+  , http = require('http')
 
-var app = express.createServer();
+var app = express();
 
-app.configure(function () {
-  app.use(stylus.middleware({ src: __dirname + '/public', compile: compile }))
-  app.use(express.static(__dirname + '/public'));
+var server = http.createServer(app);
+var io = sio.listen(server);
 
-  function compile (str, path) {
-    return stylus(str)
-      .set('filename', path)
-        .use(nib());
-  };
+
+app.get('/message',function(req,res){
+  io.sockets.emit('text', req.params.text);
+  res.end('OK');
 });
 
 
-app.listen(3000, function () {
-  var addr = app.address();
-  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-});
-
-var io = sio.listen(app)
-
-
+server.listen(3000);
