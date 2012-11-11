@@ -4,7 +4,8 @@
   "description": "this is a bridge for communicating with our sweater",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "server.js"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,11 @@
   "author": "reconbot",
   "license": "BSD",
   "dependencies": {
-    "socket.io": "~0.9.11"
+    "socket.io": "~0.9.11",
+    "express": "3.0.x"
+  },
+  "subdomain": "arduinobridge",
+  "engines": {
+    "node": "0.8.x"
   }
 }
