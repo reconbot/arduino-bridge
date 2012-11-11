@@ -13,8 +13,12 @@ var io = sio.listen(server);
 
 
 app.get('/message',function(req,res){
-  io.sockets.emit('text', req.params.text);
-  res.end('OK');
+  if(typeof req.query.text == 'string' && req.query.text){
+    io.sockets.emit('text', req.query.text);
+    res.end('OK');
+  }else{
+    res.end('notok');
+  }
 });
 
 
