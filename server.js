@@ -11,7 +11,7 @@ var app = express();
 var server = http.createServer(app);
 var io = sio.listen(server);
 
-var url = 'http://coalition-for-the-li.nko3.jit.su/success';
+var url = 'http://coalition-for-the-li.nko3.jit.su/winner';
 
 app.get('/message',function(req,res){
   if(typeof req.query.text == 'string' && req.query.text){
