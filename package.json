@@ -14,8 +14,8 @@
   "author": "reconbot",
   "license": "BSD",
   "dependencies": {
-    "socket.io": "~0.9.11",
-    "express": "3.0.x"
+    "socket.io": "~1.7.2",
+    "express": "~4.14.1"
   },
   "subdomain": "arduinobridge",
   "engines": {
